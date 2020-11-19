@@ -31,7 +31,7 @@ Você pode conferi-las aqui:
 <html lang="pt-br">
   <body>
     <p>Olá! 😃<br>
-    Foram encontradas novas ofertas para o produto que você etava monitorando.<br>
+    Foram encontradas novas ofertas para o produto que você estava monitorando.<br>
     Você pode conferi-las aqui:
     <ul>
       {promos_html}

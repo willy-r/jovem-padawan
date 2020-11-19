@@ -15,7 +15,7 @@ def _find() -> bytes:
         r.raise_for_status()
     except Exception as err:
         # Just stop the whole process, can’t continue without data.
-        LOGGER.info(f'{err}')
+        LOGGER.error(f'{err}')
         sys.exit()
     return r.content
 
