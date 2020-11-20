@@ -47,6 +47,12 @@ $ source env/bin/activate
 (env) $ pip install -r requirements.txt 
 ```
 
+### Configurando a conta do Google
+
+Para usar o programa você tambêm precisará permitir o [**Acesso a apps menos seguro**](https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mlp8VVUEn2uTz6JmNPBaS9y3390NjZo52HWBjCQfMpL5LC6AR9ItTICZwSYq0gRefPyAV4pz329WcsXOvWABM2hzGzvQ) na sua conta do Google, dê uma lida sobre!
+
+![20201120_200920](https://user-images.githubusercontent.com/47596121/99858540-8b644a00-2b6c-11eb-8efa-feb881a80ab0.jpg)
+
 ---
 
 ## Usando
@@ -80,13 +86,13 @@ O programa usa o mesmo e-mail para enviar e receber as ofertas, então é necess
     (env) $ python padawan.py -e exemplo@gmail.com -p senha_do_seu_email product
     ```
 
-Digite `$ python padawan -h` para ver mais comandos.
+Digite `$ python padawan.py -h` para ver mais comandos.
 
 ---
 
 ## Exemplo
 
-- Procurando por ofertas para o *Kindle* por exemplo, e usadondo minhas credênciais definidas nas enviroment variables:
+- Procurando por ofertas para o *Kindle* por exemplo, e usando minhas credênciais definidas nas enviroment variables:
 
 ```shell
 (env) $ python padawan.py kindle
@@ -107,7 +113,7 @@ Digite `$ python padawan -h` para ver mais comandos.
 
 ## Contribua!
 
-> Tá afim de me ajudar? Estamos todos em uma plataforma Open Source e não existe pessoa melhor do que você que está lendo isso para ajudar a melhorar esse projeto, então:
+> Tá afim de me ajudar? Estamos todos em uma plataforma que apoia o Open Source e não existe pessoa melhor do que você que está lendo isso para ajudar a melhorar esse projeto!
 
 ### Primeiro passo
 
@@ -132,3 +138,5 @@ Digite `$ python padawan -h` para ver mais comandos.
 Você pode me encontrar falando um pouco de tudo (mais sobre programação) nos seguintes lugares:
 
 - No Twitter em <a href="https://twitter.com/lliw_r?s=09" target="_blank">`@lliw_r`</a>
+
+---
