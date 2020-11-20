@@ -1,3 +1,4 @@
+import os
 import logging
 from urllib.parse import urlparse
 
@@ -9,3 +10,6 @@ logging.basicConfig(
 LOGGER = logging.getLogger('padawan.py')
 
 URL = urlparse('https://www.hardmob.com.br/forums/407-Promocoes')
+
+EMAIL = os.getenv('EMAIL')
+PASSWORD = os.getenv('PASSWORD')

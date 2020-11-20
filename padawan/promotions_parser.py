@@ -31,7 +31,7 @@ def _to_send(promotions: list[bs4.element.Tag]) -> list[tuple[str]]:
         if p_text in SENT:
             continue
 
-        SENT[p_text] = p_url
+        SENT.setdefault(p_text)
         to_send.append((p_text, p_url))
     return to_send
 
