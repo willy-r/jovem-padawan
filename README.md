@@ -63,7 +63,7 @@ Para usar é bem simples:
 
 - Sua senha não será mostrada quando você estiver digitando mas ela irá funcionar do mesmo jeito.
 
-- Só irá aparecer para você colocar a senha e o e-mail se você não fizer não quiser seguir um dos passos abaixo.
+- Só irá aparecer para você colocar a senha e o e-mail se você não quiser seguir um dos passos abaixo.
 
 O programa usa o mesmo e-mail para enviar e receber as ofertas, então é necessário você se autenticar com uma conta *Gmail* válida e existem outras duas formas de você fazer isso:
 
@@ -74,7 +74,7 @@ O programa usa o mesmo e-mail para enviar e receber as ofertas, então é necess
     (env) $ export PASSWORD='senha_do_seu_email'
     ```
 
-2. Passando como argumentos na linha de comando quando for executar o programa (não é recomedado mas é uma opção):
+2. Passando como argumentos na linha de comando quando for executar o programa (não é recomendado mas é uma opção):
 
     ```shell
     (env) $ python padawan.py -e exemplo@gmail.com -p senha_do_seu_email product
