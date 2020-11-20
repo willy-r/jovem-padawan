@@ -40,7 +40,7 @@ args = get_args()
 @dataclass
 class ArgumentsHandler:
     product: str = args.product.capitalize()
-    email: str = args.email or input('E-mail: ')
+    email: str = args.email or input('? E-mail: ')
     sender_email: str = email
     receiver_email: str = email.replace('@gmail.com', '+receiver@gmail.com')
     password: str = args.password or getpass('? Senha do e-mail: ')
