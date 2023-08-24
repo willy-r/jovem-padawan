@@ -2,7 +2,7 @@ import argparse
 from getpass import getpass
 from dataclasses import dataclass
 
-from .config import EMAIL, PASSWORD
+from app import config
 
 
 def get_args() -> argparse.Namespace:
@@ -23,13 +23,13 @@ def get_args() -> argparse.Namespace:
     parser.add_argument('-e',
                         '--email',
                         action='store',
-                        default=EMAIL,
+                        default=config.EMAIL_USERNAME,
                         help='valid gmail account (prompt if not passed)')
 
     parser.add_argument('-p',
                         '--password',
                         action='store',
-                        default=PASSWORD,
+                        default=config.EMAIL_PASSWORD,
                         help='email’s password (prompt if not passed)')
     return parser.parse_args()
 

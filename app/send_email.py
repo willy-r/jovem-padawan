@@ -4,10 +4,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from .config import LOGGER
+from app import config
 
 
-def _format_message(sender: str,
+def format_message(sender: str,
                     receiver: str,
                     subject: str,
                     promotions: list[tuple[str]]) -> str:
@@ -55,7 +55,7 @@ def send_email(sender: str,
                password: str,
                subject: str,
                promotions: list[tuple[str]]) -> None:
-    message = _format_message(sender, receiver, subject, promotions)
+    message = format_message(sender, receiver, subject, promotions)
     context = ssl.create_default_context()
     try:
         with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as s:
@@ -63,5 +63,5 @@ def send_email(sender: str,
             s.sendmail(sender, receiver, message)
     except Exception as err:
         # Break point, can’t continue if email is not sent.
-        LOGGER.error(f'{err}')
+        config.LOGGER.error(f'{err}')
         sys.exit()

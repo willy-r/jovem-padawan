@@ -37,17 +37,17 @@ $ cd jovem-padawan
 > aqui eu estou usando o `venv` por ele já vir instalado com o Python, mas sinta-se à vontade para escolher o que você mais se sentir confortável
 
 ```shell
-$ python -m venv env
+$ python -m venv venv
 ```
 
 - Ative o ambiente virtual e instale as dependências:
 
 ```shell
 $ source env/bin/activate
-(env) $ pip install -r requirements.txt 
+(venv) $ pip install -r requirements.txt 
 ```
 
-### Configurando a conta do Google
+### Configurando a conta do Google para envio de email
 
 Para usar o programa você tambêm precisará permitir o [**Acesso a apps menos seguro**](https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mlp8VVUEn2uTz6JmNPBaS9y3390NjZo52HWBjCQfMpL5LC6AR9ItTICZwSYq0gRefPyAV4pz329WcsXOvWABM2hzGzvQ) na sua conta do Google, dê uma lida sobre!
 
@@ -60,7 +60,7 @@ Para usar o programa você tambêm precisará permitir o [**Acesso a apps menos 
 Para usar é bem simples:
 
 ```shell
-(env) $ python padawan.py product
+(env) $ python -m app.main product
 ? E-mail: exemplo@gmail.com
 ? Senha do e-mail:
 ```
@@ -76,17 +76,18 @@ O programa usa o mesmo e-mail para enviar e receber as ofertas, então é necess
 1. Usando enviroment variables (recomendado):
 
     ```shell
-    (env) $ export EMAIL='exemplo@gmail.com'
-    (env) $ export PASSWORD='senha_do_seu_email'
+    (venv) $ export EMAIL_USERNAME='exemplo@gmail.com'
+    (venv) $ export EMAIL_PASSWORD='senha_do_seu_email'
     ```
+    > Ou mude o nome do arquivo `.env.example` para `.env` e preencha as variáveis de ambiente necessárias.
 
 2. Passando como argumentos na linha de comando quando for executar o programa (não é recomendado mas é uma opção):
 
     ```shell
-    (env) $ python padawan.py -e exemplo@gmail.com -p senha_do_seu_email product
+    (venv) $ python -m app.main -e exemplo@gmail.com -p senha_do_seu_email product
     ```
 
-Digite `$ python padawan.py -h` para ver mais comandos.
+Digite `$ python -m app.main -h` para ver mais comandos.
 
 ---
 
@@ -95,10 +96,10 @@ Digite `$ python padawan.py -h` para ver mais comandos.
 - Procurando por ofertas para o *Kindle* por exemplo, e usando minhas credênciais definidas nas enviroment variables:
 
 ```shell
-(env) $ python padawan.py kindle
-(16:22) - padawan.py: INFO: Procurando por ofertas para "Kindle" em https://www.hardmob.com.br/forums/407-Promocoes
-(16:22) - padawan.py: INFO: Novas ofertas encontradas para "Kindle"
-(16:22) - padawan.py: INFO: Enviado e-mail com as ofertas para exemplo@gmail.com
+(venv) $ python -m app.main kindle
+(16:22) - jovem-padawan: INFO: Procurando por ofertas para "Kindle" em https://www.hardmob.com.br/forums/407-Promocoes
+(16:22) - jovem-padawan: INFO: Novas ofertas encontradas para "Kindle"
+(16:22) - jovem-padawan: INFO: Enviado e-mail com as ofertas para exemplo@gmail.com
 ```
 
   - Para parar o programa digite `CTRL + C`.

@@ -4,26 +4,29 @@ import sys
 import bs4
 import requests
 
-from .config import LOGGER, URL
+from app import config
 
 SENT = {}
 
 
-def _find() -> bytes:
+def get_target_site() -> bytes:
     try:
-        r = requests.get(URL.geturl(), timeout=2)
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+        }
+        r = requests.get(config.TARGET_URL.geturl(), headers=headers, timeout=2)
         r.raise_for_status()
     except Exception as err:
         # Just stop the whole process, can’t continue without data.
-        LOGGER.error(f'{err}')
+        config.LOGGER.error(f'{err}')
         sys.exit()
     return r.content
 
 
-def _to_send(promotions: list[bs4.element.Tag]) -> list[tuple[str]]:
+def promotions_to_send(promotions: list[bs4.element.Tag]) -> list[tuple[str]]:
     to_send = []
     for promo in promotions:
-        p_url = URL._replace(path=promo['href']).geturl()
+        p_url = config.TARGET_URL._replace(path=promo['href']).geturl()
         p_text = promo.get_text(strip=True)
 
         # Verify for promotions that was already sent.
@@ -37,7 +40,7 @@ def _to_send(promotions: list[bs4.element.Tag]) -> list[tuple[str]]:
 
 
 def parse_promotions(search_for: str) -> list[tuple[str]]:
-    content = _find()
+    content = get_target_site()
     soup = bs4.BeautifulSoup(content, 'html.parser')
 
     # This will find all the promotions on the first page
@@ -48,4 +51,4 @@ def parse_promotions(search_for: str) -> list[tuple[str]]:
         class_='title',
         string=re.compile(search_for, re.IGNORECASE),
     )
-    return _to_send(promotions)
+    return promotions_to_send(promotions)
